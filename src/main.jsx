@@ -1,15 +1,13 @@
-import React from 'react';
+import React from 'react'
+import App from './App.jsx'
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import { BrowserRouter } from "react-router-dom"
-import "./index.css"
-import { DataContext } from './myContext';
+import { BrowserRouter } from 'react-router-dom';
+import { DataProviderFuncComp } from './context.jsx';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <BrowserRouter>
-    <DataContext>
-      <App />
-      </DataContext>
-    </BrowserRouter>
-);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+  <DataProviderFuncComp>
+    <App />
+    </DataProviderFuncComp>
+  </BrowserRouter>,
+)

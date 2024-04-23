@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { Outlet, useNavigate } from 'react-router-dom';
+import { DataContext } from "../context";
+import Cookies from 'js-cookie';
 
-const Protectedroutes = () => {
-    const [auth, setAuth] = useState()
-    useEffect(()=>{
-        const checkAuth = ()=>{
-            const isAuth = localStorage.getItem("token");
-        console.log(isAuth) 
-        if (isAuth !== null){
-            setAuth(false)
+
+const ProtectedRoutes = () => {
+    
+    const { getSessionFunc } = useContext(DataContext);
+
+    const navigate = useNavigate()
+      useEffect(()=>{
+        getSessionFunc();
+        if (!Cookies.get("accessToken")){
+            return navigate("/login");
         }
-        else{
-            setAuth(true);
-        }
-        
-        }
-        checkAuth()
-    }, [])
-  if (auth){
-    return <Navigate to={"/login"} />
-  }
-  else{
-    return <Outlet />
-  }
+    },[])
+
+
+  return (
+    <>
+      <Outlet />
+    </>
+  )
+  
 }
 
-export default Protectedroutes
+export default ProtectedRoutes
