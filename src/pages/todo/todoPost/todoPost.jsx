@@ -127,7 +127,7 @@ const TodoAddComp = () => {
                   </div>
                   <div className="mb-4">
                     <button
-                      type="submit"
+                      type="button"
                       onClick={()=>{
                         navigate("/todoget")
                       }}
@@ -138,7 +138,7 @@ const TodoAddComp = () => {
                   </div>
                   <div className="mb-4">
                     <button
-                      type="submit"
+                      type="button"
                       onClick={()=>{
                         Cookies.remove("accessToken");
                         Cookies.remove("refreshToken");
