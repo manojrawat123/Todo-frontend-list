@@ -12,6 +12,7 @@ import todoGet from "./pages/todo/todoGet/todoGet";
 import TodoAddComp from "./pages/todo/todoPost/todoPost";
 import TodoMain from "./pages/todo/TodoMain";
 import TodoUpdateComponent from "./pages/todo/TodoUpdate/TodoUpdate";
+import TodoGet from "./pages/todo/todoGet/todoGet";
 
 function App() {
 
@@ -37,6 +38,9 @@ function App() {
         {/* Protected Routes */}
         <Route path="" Component={ProtectedRoutes}>
           <Route path="" Component={TodoMain} />
+        </Route>
+        <Route path="" Component={ProtectedRoutes}>
+          <Route path="/todoget" Component={TodoGet} />
         </Route>
         <Route path="" Component={ProtectedRoutes}>
           <Route path="/todo/:id" Component={TodoUpdateComponent} />

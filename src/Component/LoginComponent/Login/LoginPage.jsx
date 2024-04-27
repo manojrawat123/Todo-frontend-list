@@ -8,7 +8,6 @@ import API_BASE_URL from '../../../config';
 import inputLoginArr from './loginInpArr';
 import { ToastContainer, toast } from 'react-toastify';
 
-
 const LoginPage = () => {
 
   const [loginButton, setLoginButton] = useState(false);
@@ -70,7 +69,7 @@ setIsLoggedIn(true);
                               name={element.name}
                               required
                               value={element.value}
-                              className="border border-gray-300 outline-none peer  block min-h-[auto] w-full pl-8 bg-transparent py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:border-orange-600  focus:border rounded"
+                              className=" border border-gray-300 outline-none peer  block min-h-[auto] w-full pl-8 bg-transparent py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:border-orange-600  focus:border rounded"
                               placeholder={element.placeholder}
                             />
                             {element.icon}

@@ -1,39 +1,3 @@
-
-// const TodoForm = () => {
-
-//     return (
-//         <>
-//         <ToastContainer />
-//         <form className="flex my-10" onSubmit={handleSubmit}>
-//             <input
-//                 type="text"
-//                 className="border-2 border-gray-300 p-2 w-3/4"
-//                 placeholder="Add a new task..."
-//                 value={todo_title}
-//                 onChange={(e) => setTodoTitle(e.target.value)}
-//             />
-//             <br/>
-//             <input
-//                 type="text"
-//                 className="border-2 border-gray-300 p-2 w-3/4"
-//                 placeholder="Add a new task..."
-//                 value={todo_desc}
-//                 onChange={(e) => setTodoDesc(e.target.value)}
-//             />
-//             <button
-//                 type="submit"
-//                 className="bg-blue-500 text-white p-2 ml-2 rounded"
-//             >
-//                 Add
-//             </button>
-//         </form>
-//         </>
-//     );
-// };
-
-// export default TodoForm;
-
-
 import API_BASE_URL from '../../../config';
 import Cookies from 'js-cookie';
 import { toast, ToastContainer } from 'react-toastify';
@@ -52,6 +16,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import 'react-toastify/dist/ReactToastify.css';
 import { DataContext } from '../../../context';
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
   todo_title: Yup.string().required('Todo Title is required'),
@@ -69,7 +34,7 @@ const TodoAddComp = () => {
   const refreshToken = Cookies.get("refreshToken");
   const user_id = Cookies.get("user_id");
   const { todoListGetFunc } = useContext(DataContext);
-
+  const navigate = useNavigate();
   const initialValues = {
     todo_title: "",
     todo_desc: ""
@@ -78,12 +43,12 @@ const TodoAddComp = () => {
 
   return (
     <>
-      <div className="w-[100%] py-10 bg-blue-50">
+      <div className="w-[70%] py-10 bg-blue-50 mx-auto">
         <div className="sm:w-[80%] w-[90%]  mx-auto bg-white rounded-lg shadow-2xl border border-solid border-gray-300">
           <h2 className="bg-gray-100 text-green-600 text-3xl py-4 px-6 mb-6 font-semibold text-center">Add New Todo</h2>
           <Formik
             initialValues={initialValues}
-            onSubmit={(value, { resetForm }) => {
+            onSubmit={(value, {resetForm}) => {
               setRegisterButton(true);
               axios.post(`${API_BASE_URL}/api/todo`, {
                 todo_title: value.todo_title,
@@ -97,11 +62,11 @@ const TodoAddComp = () => {
                   }
                 }
               ).then((value) => {
-                todoListGetFunc();
                 resetForm();
                 toast.success("Todo Added Successfully", {
                   position: "top-center"
                 });
+                todoListGetFunc();
               }).catch((err) => {
                 console.log(err);
                 toast.error("Some Error Occured!!")
@@ -158,6 +123,31 @@ const TodoAddComp = () => {
                       className="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition duration-300"
                     >
                       {registerButton ? <> &nbsp;&nbsp;&nbsp;<CircularProgress color="inherit" size={19} /></> : <>Submit</>}
+                    </button>
+                  </div>
+                  <div className="mb-4">
+                    <button
+                      type="submit"
+                      onClick={()=>{
+                        navigate("/todoget")
+                      }}
+                      className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+                    >
+                      {<>Show Todo</>}
+                    </button>
+                  </div>
+                  <div className="mb-4">
+                    <button
+                      type="submit"
+                      onClick={()=>{
+                        Cookies.remove("accessToken");
+                        Cookies.remove("refreshToken");
+                        setIsLoggedIn(false);
+                        navigate("/login");
+                    }}
+                      className="w-full bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300"
+                    >
+                      {<>Logout</>}
                     </button>
                   </div>
                 </div>

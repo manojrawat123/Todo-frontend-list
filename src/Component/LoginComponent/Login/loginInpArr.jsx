@@ -7,15 +7,15 @@ const inputLoginArr = [{
    "id": "username",
     "name": "username",
     "required": true,
-    "placeholder": "Enter your Email",
     "value" : "positive.mind.123456789@gmail.com",
+    "placeholder": "Enter your Email",
     "icon": <PersonIcon className={iconCss} />
   }, {
     "type": "password",
    "id": "password",
     "name": "password",
     "required": true,
-    "value": "1234",
+    "value" : "1234",
     "placeholder": "Enter Your Password",
     "icon": <LockIcon className={iconCss} />
   }]

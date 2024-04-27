@@ -21,9 +21,7 @@ const TodoSupport = ({ element, index }) => {
                     <p className="text-gray-600">{element.todo_desc}</p>
                 </div>
                 <div className=" ml-auto">
-                  
-                        <button 
-                        
+                        <button
                         onClick={()=>{
                             setIsModalOpen(true);
                         }}
@@ -44,8 +42,7 @@ const TodoSupport = ({ element, index }) => {
                                 },
                                 ).then((value) => {
                                     console.log(value.data);
-                                    todoListGetFunc();
-                                    toast.success("Todo Deleted Successfully!!");
+                                    todoListGetFunc(); 
                                 }).catch((err) => {
                                     console.log(err);
                                 }).finally(() => {
