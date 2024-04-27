@@ -19,7 +19,7 @@ const TodoGet = () => {
 
     if(!todoList){
         return  <div className='flex justify-center items-center h-[80vh]'>
-            <CircularProgress />
+            <CircularProgress size={70} />
             </div>
     }
 

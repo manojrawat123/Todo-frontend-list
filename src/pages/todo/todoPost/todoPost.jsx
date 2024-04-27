@@ -43,7 +43,7 @@ const TodoAddComp = () => {
 
   return (
     <>
-      <div className="w-[70%] py-10 bg-blue-50 mx-auto">
+      <div className="md:w-[70%] w-[95%] py-10 bg-blue-50 mx-auto">
         <div className="sm:w-[80%] w-[90%]  mx-auto bg-white rounded-lg shadow-2xl border border-solid border-gray-300">
           <h2 className="bg-gray-100 text-green-600 text-3xl py-4 px-6 mb-6 font-semibold text-center">Add New Todo</h2>
           <Formik
