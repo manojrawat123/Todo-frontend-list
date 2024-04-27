@@ -33,7 +33,7 @@ const TodoAddComp = () => {
   const accessToken = Cookies.get("accessToken");
   const refreshToken = Cookies.get("refreshToken");
   const user_id = Cookies.get("user_id");
-  const { todoListGetFunc } = useContext(DataContext);
+  const { todoListGetFunc, setIsLoggedIn } = useContext(DataContext);
   const navigate = useNavigate();
   const initialValues = {
     todo_title: "",
