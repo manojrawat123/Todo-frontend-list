@@ -17,7 +17,7 @@ const TodoSupport = ({ element, index }) => {
     return (
         <>
             <TodoUpdateModal element={element} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}/>
-            <div className="todo-item bg-white rounded-lg shadow-md p-4 flex gap-2 my-4">
+            <div className="todo-item bg-white rounded-lg shadow-md p-4 md:flex md:flex-row flex-col  gap-2 my-4">
                 <div>
                     <h3 className="text-lg font-bold text-gray-800">{index + 1}. {element.todo_title}</h3>
                     <p className="text-gray-600">{element.todo_desc}</p>
@@ -28,7 +28,7 @@ const TodoSupport = ({ element, index }) => {
                             setIsModalOpen(true);
                         }}
                         className="edit-btn px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-700">
-                            <EditIcon />
+                          Edit  <EditIcon />
                         </button>
                     <button className="delete-btn px-4 py-2 rounded-md text-white bg-red-500 hover:bg-red-700 ml-2"
                         onClick={
@@ -51,7 +51,7 @@ const TodoSupport = ({ element, index }) => {
                                     setButton(false);
                                 });
                             }}
-                    > {button ? <CircularProgress size={19} color='inherit' /> : <DeleteIcon />}</button>
+                    > {button ? <CircularProgress size={19} color='inherit' /> :<>Delete <DeleteIcon /> </>}</button>
                 </div>
             </div>
         </>
