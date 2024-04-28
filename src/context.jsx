@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 const DataContext = createContext();
 
 const DataProviderFuncComp = ({ children }) => {
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const accessToken = Cookies.get("accessToken");
   const refreshToken = Cookies.get("refreshToken");

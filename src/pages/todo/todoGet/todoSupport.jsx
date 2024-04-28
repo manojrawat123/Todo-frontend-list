@@ -6,6 +6,8 @@ import axios from 'axios';
 import { DataContext } from '../../../context';
 import { NavLink, Navigate } from 'react-router-dom';
 import TodoUpdateModal from '../TodoUpdate/TodoUpdateModel';
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 const TodoSupport = ({ element, index }) => {
     const [button, setButton] = useState(false);
@@ -26,7 +28,7 @@ const TodoSupport = ({ element, index }) => {
                             setIsModalOpen(true);
                         }}
                         className="edit-btn px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-700">
-                            Edit
+                            <EditIcon />
                         </button>
                     <button className="delete-btn px-4 py-2 rounded-md text-white bg-red-500 hover:bg-red-700 ml-2"
                         onClick={
@@ -49,7 +51,7 @@ const TodoSupport = ({ element, index }) => {
                                     setButton(false);
                                 });
                             }}
-                    > {button ? <CircularProgress size={19} color='inherit' /> : "Delete"}</button>
+                    > {button ? <CircularProgress size={19} color='inherit' /> : <DeleteIcon />}</button>
                 </div>
             </div>
         </>
