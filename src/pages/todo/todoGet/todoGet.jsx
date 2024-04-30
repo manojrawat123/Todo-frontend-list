@@ -52,7 +52,6 @@ const TodoGet = () => {
                       onClick={()=>{
                         Cookies.remove("accessToken");
                         Cookies.remove("refreshToken");
-                        setIsLoggedIn(false);
                         navigate("/login");
                     }}
                       className="w-full bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300"
