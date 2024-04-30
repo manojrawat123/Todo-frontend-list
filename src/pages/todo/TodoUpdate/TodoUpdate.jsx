@@ -150,7 +150,7 @@ const TodoUpdateComponent = ({element, setIsModalOpen}) => {
                       type="submit"
                       className="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition duration-300"
                     >
-                      {registerButton ? <> &nbsp;&nbsp;&nbsp;<CircularProgress color="inherit" size={19} /></> : <>Add</>}
+                      {registerButton ? <> &nbsp;&nbsp;&nbsp;<CircularProgress color="inherit" size={19} /></> : <>Update Todo</>}
                     </button>
                   </div>
                 </div>
