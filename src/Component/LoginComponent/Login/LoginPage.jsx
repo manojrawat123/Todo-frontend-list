@@ -68,7 +68,7 @@ setIsLoggedIn(true);
                               id={element.id}
                               name={element.name}
                               required
-                              value={element.value}
+                          
                               className=" border border-gray-300 outline-none peer  block min-h-[auto] w-full pl-8 bg-transparent py-[0.32rem] leading-[1.6] transition-all duration-200 ease-linear focus:border-orange-600  focus:border rounded"
                               placeholder={element.placeholder}
                             />
